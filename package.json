@@ -1,0 +1,22 @@
+{
+  "name": "tasktable",
+  "version": "1.0.0",
+  "description": "1) ��� �������� ���� �������������� ����� �������� ���� � ������������\r ������.\r 2) ������� ������ � Local Storage.\r 3) ����� ���������� �������� ������ �����������.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genixg/tasktable.git"
+  },
+  "author": "Gennady Goncharov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/genixg/tasktable/issues"
+  },
+  "homepage": "https://github.com/genixg/tasktable#readme",
+  "dependencies": {
+    "create-react-app": "^1.5.2"
+  }
+}
