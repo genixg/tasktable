@@ -7,10 +7,9 @@ import '../css/index.css';
 import App from './App';
 import reducer from './reducers';
 
-const createStoreWithMiddleware 
-    = applyMiddleware(
-        save() // Saving to localStorage
-    )(createStore);
+const createStoreWithMiddleware = applyMiddleware(
+    save() // Saving to localStorage
+)(createStore);
 
 const store = createStoreWithMiddleware(
     reducer, 
@@ -22,4 +21,3 @@ ReactDOM.render(
         <App />
     </Provider>, 
 document.getElementById('root'));
-//registerServiceWorker();
