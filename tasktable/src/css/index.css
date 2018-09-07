@@ -1,0 +1,15 @@
+.container {
+    margin-top: 50px;
+}
+
+input.checkbox {
+    margin: 5px;
+}
+button.btn {
+    margin: 2px;
+    background: white;
+    border: 1px solid grey;
+}
+button.btn:hover {
+    background: #e8e8e8;
+}

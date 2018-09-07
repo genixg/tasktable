@@ -1,19 +1,52 @@
-function Article() {
-    const body = <section>body</section>
-    return (
-        <div className='hello' style={{color: 'red'}}>
-            <h2>title</h2>
-            {body}
-            <h3>creat: {(new Date()).toDateString()}></h3>
-        </div>
-    )
-}
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.css'
 
-function App() {
-    return (
-        <div>
-            <h1>App name</h1>
-            <Article />
-        </div>
-    )
+import TaskTable from './components/TaskTable';
+import TaskEditModal from './components/TaskEditModal';
+import CheckboxHideDoneTasks from './components/CheckboxHideDoneTasks';
+
+
+class App extends Component {
+    state = {
+        hideDoneTasks: false,
+        openModal: false,
+        editingTask: {},
+    }
+
+    render() {
+        return (
+            <div className="container">
+                    <CheckboxHideDoneTasks />
+                    <TaskTable />
+                    <TaskEditModal open={this.state.openModal} onClose={this.onCloseModal} task={this.state.editingTask}/>
+                
+            </div>
+        )
+    }
+
+    changeHideDoneTasks = () => { 
+        this.setState({
+            hideDoneTasks: !this.state.hideDoneTasks,
+        });
+    }
+    
+    doOpenModal = (e, curTask) => {
+        this.setState({ 
+            openModal: true,
+            editingTask: curTask,
+        });
+    };
+    
+    onCloseModal = () => {
+        this.setState({ openModal: false });
+    };
+    deleteTask = () => {
+        alert("deleteTask");
+    };
+    handleChangeStatus = () => {
+        alert("handleChangeStatus");
+    }
 }
+   
+export default connect()(App); 
