@@ -15,14 +15,6 @@ const Task = ({task, handleEdit, handleDelete, handleChangeStatus}) => (
             </tr>
         )
 
- /*   handleChangeStatus = (e, task) => {
-        task.status = !task.status;
-    }
-
-    handleDelete = () => {
-        console.log("---","Deleting");
-    }*/
-
 Task.propTypes = {
     task: PropTypes.shape({
         id: PropTypes.number.isRequired,

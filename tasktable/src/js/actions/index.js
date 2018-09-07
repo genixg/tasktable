@@ -1,4 +1,4 @@
-let nextTaskId = 0;
+let nextTaskId = 0; // for undublicating ID on adding new
 export const deleteTask = id => ({
     type: "DELETE_TASK",
     id
@@ -11,7 +11,7 @@ export const  toggleStatus = id => ({
     type: "TOGGLE_STATUS",
     id
 });
-export const  addTask = task => ({
+export const  addTask = task => ({ // for next features
     type: "ADD_TASK",
     id: nextTaskId++,
     task
@@ -31,8 +31,4 @@ export const  hideModal = () => ({
 export const VisibilityFilters = {
     SHOW_ALL: 'SHOW_ALL',
     HIDE_DONE: 'HIDE_DONE'
-}
-export const ModalVisibilityFilters = {
-    SHOW: 'SHOW',
-    HIDE: 'HIDE'
 }

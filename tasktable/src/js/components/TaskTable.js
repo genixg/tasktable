@@ -2,12 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-
 import Task from './Task';
 import { VisibilityFilters, toggleStatus, editTask, deleteTask, openModal} from '../actions'
-import {List} from 'immutable'
-
-//var List = require("immutable").List;
 
 const getVisibleTasks = (tasks, filter) => {
     switch (filter) {
@@ -19,18 +15,6 @@ const getVisibleTasks = (tasks, filter) => {
             throw new Error('Unknown filter: ' + filter)
     }
 }
-
-const mapStateToProps = state => ({
-    tasks: getVisibleTasks(state.tasks, state.visibilityFilter),
-    modalOpened: state.taskEditModal
-});
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-    toggleStatus: id => dispatch(toggleStatus(id)),
-    handleEdit: task => dispatch(editTask(task)),
-    handleOpenModal: task => dispatch(openModal(task)),
-    handleDelete: id => dispatch(deleteTask(id)),
-});
 
 const TaskTable = ({tasks, modalOpened, handleOpenModal, handleDelete, toggleStatus}) => {
     const taskElements = tasks.map(task =>
@@ -57,8 +41,20 @@ const TaskTable = ({tasks, modalOpened, handleOpenModal, handleDelete, toggleSta
     )
 }
 
+const mapStateToProps = state => ({
+    tasks: getVisibleTasks(state.tasks, state.visibilityFilter),
+    modalOpened: state.taskEditModal
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    toggleStatus: id => dispatch(toggleStatus(id)),
+    handleEdit: task => dispatch(editTask(task)),
+    handleOpenModal: task => dispatch(openModal(task)),
+    handleDelete: id => dispatch(deleteTask(id)),
+});
+
 TaskTable.propTypes = {
-    tasks: PropTypes.objectOf(List).isRequired,
+    tasks: PropTypes.array.isRequired,
     handleEdit: PropTypes.func.isRequired,
     handleDelete: PropTypes.func.isRequired,
     toggleStatus: PropTypes.func.isRequired,

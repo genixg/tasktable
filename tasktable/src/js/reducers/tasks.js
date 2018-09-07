@@ -7,8 +7,8 @@ var reducer = function(state = new List(tasksDefault), action) {
         case "SET_STATE":
             return state.merge(action.state);
         case "DELETE_TASK":
-            return state.filterNot(
-                    (item) => item === action.task
+            return state.filter(
+                    (item) => item.id !== action.id
                 );
         case "EDIT_TASK":
             return state.map(task =>
